@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Suruchi Jindal | Molecular Biology & Plant Genomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #5c7a5c;
+    --sage-light: #8aab8a;
+    --sage-pale: #e8f0e8;
+    --earth: #8b6f47;
+    --cream: #faf8f3;
+    --ink: #1a1a1a;
+    --ink-soft: #3d3d3d;
+    --ink-muted: #7a7a7a;
+    --gold: #c9a84c;
+    --border: #ddd8cc;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem;
+    height: 64px;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--sage);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sage); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(ellipse at center, rgba(92,122,92,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-dna {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 50%;
+    background:
+      repeating-linear-gradient(
+        60deg,
+        transparent,
+        transparent 40px,
+        rgba(92,122,92,0.04) 40px,
+        rgba(92,122,92,0.04) 41px
+      ),
+      repeating-linear-gradient(
+        -60deg,
+        transparent,
+        transparent 40px,
+        rgba(92,122,92,0.04) 40px,
+        rgba(92,122,92,0.04) 41px
+      );
+    pointer-events: none;
+  }
+  .hero-text {
+    padding: 4rem 4rem 4rem 6rem;
+    animation: fadeUp 0.9s ease both;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    background: var(--sage-pale);
+    border: 1px solid rgba(92,122,92,0.3);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+    animation: pulse 2s infinite;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+  .hero-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--earth);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--sage);
+    color: var(--white);
+    border: 1px solid var(--sage);
+  }
+  .btn-primary:hover { background: #4a6b4a; border-color: #4a6b4a; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--sage); color: var(--sage); transform: translateY(-1px); }
+
+  .hero-visual {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 4rem 4rem 4rem 2rem;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+  .profile-frame {
+    position: relative;
+    width: 280px; height: 280px;
+    margin-bottom: 2rem;
+  }
+  .profile-frame::before {
+    content: '';
+    position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px;
+    border: 2px solid var(--sage-light);
+    border-radius: 4px;
+    opacity: 0.5;
+  }
+  .profile-frame::after {
+    content: '';
+    position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px;
+    background: var(--sage-pale);
+    border-radius: 4px;
+    z-index: -1;
+  }
+  .profile-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--sage-pale) 0%, #d4e4d4 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: var(--sage);
+    font-weight: 300;
+  }
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 340px;
+  }
+  .stat {
+    background: var(--white);
+    padding: 1rem 0.75rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--sage);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* ── SOCIAL LINKS ── */
+  .social-strip {
+    background: var(--ink);
+    padding: 1.25rem 6rem;
+    display: flex; align-items: center; gap: 3rem;
+  }
+  .social-strip span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .social-strip a {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px;
+  }
+  .social-strip a:hover { color: var(--sage-light); border-color: var(--sage-light); }
+  .social-strip a svg { flex-shrink: 0; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 6rem; }
+  section:nth-child(even) { background: var(--white); }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; max-width: 60px;
+    height: 1px; background: var(--sage-light);
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+  h2 strong { font-weight: 600; color: var(--sage); }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid; grid-template-columns: 2fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .about-text p { color: var(--ink-soft); margin-bottom: 1.25rem; font-size: 1rem; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .info-card {
+    background: var(--sage-pale);
+    border: 1px solid rgba(92,122,92,0.2);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+  .info-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--sage);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(92,122,92,0.2);
+  }
+  .info-list { list-style: none; }
+  .info-list li {
+    display: flex; gap: 0.75rem; padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(92,122,92,0.1);
+    font-size: 0.88rem; color: var(--ink-soft);
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list li span:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--sage);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    min-width: 55px;
+    padding-top: 2px;
+  }
+
+  /* ── RESEARCH ── */
+  .research-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .research-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .research-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--sage);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s;
+  }
+  .research-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .research-card:hover::before { transform: scaleY(1); }
+  .research-icon {
+    width: 44px; height: 44px;
+    background: var(--sage-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+  }
+  .research-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .research-card p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.65; }
+
+  /* ── EXPERIENCE TIMELINE ── */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 3rem;
+    padding-left: 1.75rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -2rem;
+    top: 8px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--sage);
+    border: 2px solid var(--cream);
+    outline: 1px solid var(--sage);
+  }
+  .timeline-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .timeline-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .timeline-item .org {
+    font-size: 0.85rem;
+    color: var(--earth);
+    margin-bottom: 0.75rem;
+  }
+  .timeline-item ul { list-style: none; }
+  .timeline-item ul li {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.55;
+  }
+  .timeline-item ul li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--sage-light);
+    font-size: 0.75rem;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .pub-item {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .pub-item:hover { border-color: var(--sage-light); }
+  .pub-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--white);
+    background: var(--sage);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.06em;
+  }
+  .pub-item h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+  }
+  .pub-item .pub-meta {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+  .pub-item .pub-authors {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.3rem;
+  }
+  .pub-type {
+    position: absolute; top: 1.5rem; right: 1.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+  .skill-group h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .skill-tag:hover { border-color: var(--sage); color: var(--sage); background: var(--sage-pale); }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .edu-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .edu-card:hover { border-color: var(--sage-light); transform: translateY(-2px); }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--sage);
+    margin-bottom: 0.3rem;
+  }
+  .edu-field {
+    font-size: 0.9rem;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .edu-inst { font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 0.3rem; }
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--earth);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── AWARDS ── */
+  .awards-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .award-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 4px;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: all 0.2s;
+  }
+  .award-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .award-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .award-text h4 { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+  .award-text p { font-size: 0.78rem; color: var(--ink-muted); }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .contact-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .contact-info p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.2s;
+    font-size: 0.9rem;
+  }
+  .contact-item:hover { border-color: var(--sage); color: var(--sage); }
+  .contact-item span:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--sage);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    min-width: 50px;
+  }
+  .profile-links { display: flex; flex-direction: column; gap: 1rem; }
+  .profile-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.25s;
+    font-size: 0.9rem;
+  }
+  .profile-link-li { background: #0077B5; color: white; }
+  .profile-link-li:hover { background: #005fa3; transform: translateX(4px); }
+  .profile-link-sc { background: #E9711C; color: white; }
+  .profile-link-sc:hover { background: #c85f15; transform: translateX(4px); }
+  .profile-link-gs { background: #4285F4; color: white; }
+  .profile-link-gs:hover { background: #3367d6; transform: translateX(4px); }
+  .profile-link svg { flex-shrink: 0; }
+  .profile-link span { font-weight: 500; }
+  .profile-link small { font-size: 0.75rem; opacity: 0.8; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 2rem 6rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  footer a:hover { color: var(--sage-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-text { padding: 4rem 3rem; }
+    section { padding: 4rem 3rem; }
+    .research-grid, .awards-grid { grid-template-columns: 1fr 1fr; }
+    .edu-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .social-strip { padding: 1rem 3rem; gap: 1.5rem; flex-wrap: wrap; }
+    footer { padding: 1.5rem 3rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 3rem 1.5rem; }
+    .research-grid, .awards-grid, .edu-grid { grid-template-columns: 1fr; }
+    .social-strip { padding: 1rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Dr. Suruchi Jindal</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home" style="padding-top:64px">
+  <div class="hero-dna"></div>
+  <div class="hero-text">
+    <div class="hero-badge">Young Scientist Awardee · Punjab Science Congress 2017</div>
+    <h1>Dr. <em>Suruchi</em><br>Jindal</h1>
+    <p class="hero-title">Assistant Professor, Molecular Biology &nbsp;·&nbsp; Lovely Professional University</p>
+    <p class="hero-desc">
+      Plant genomicist specializing in wheat chromosome mapping, disease resistance gene discovery,
+      and omics-driven crop improvement. Bridging molecular biology and bioinformatics to advance agricultural science.
+    </p>
+    <div class="hero-cta">
+      <a href="#publications" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+        View Publications
+      </a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="profile-frame">
+      <div class="profile-img">SJ</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Publications</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Yrs Research</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3+</span>
+        <span class="stat-label">Book Chapters</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <span>Connect</span>
+  <a href="https://www.linkedin.com/in/suruchi-jindal-b5027018/" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    LinkedIn
+  </a>
+  <a href="https://www.scopus.com/dashboard.uri?origin=&zone=TopNavBar" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    Scopus Profile
+  </a>
+  <a href="https://scholar.google.com/citations?user=wwEiJioAAAAJ&hl=en" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+    Google Scholar
+  </a>
+  <a href="mailto:suruchi.28640@lpu.co.in">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Email
+  </a>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 — About</div>
+  <h2>Decoding the <strong>Wheat Genome</strong>,<br>Advancing Crop Science</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        Dr. Suruchi Jindal is an Assistant Professor in Molecular Biology at the School of Biosciences and Bioengineering, Lovely Professional University, Phagwara. A recipient of the prestigious <strong>Young Scientist Award</strong> at the Punjab Science Congress 2017, she brings over 15 years of research experience in plant genomics and molecular breeding.
+      </p>
+      <p>
+        Her doctoral work at Punjab Agricultural University focused on the physical and genetic mapping of chromosome 2AL of hexaploid wheat — a foundational contribution to the International Wheat Genome Sequencing Consortium's landmark 2018 paper published in <em>Science</em>.
+      </p>
+      <p>
+        As a BIOCARe Women Scientist (Principal Investigator), she successfully led a project on mapping leaf and stripe rust resistance genes transferred from <em>Triticum monococcum</em>, combining high-throughput genomics, KASP assays, and transcriptome analysis.
+      </p>
+      <p>
+        She is also the Director of <strong>CropGenex</strong>, a bioservices company in Ludhiana offering genomic data analytics, statistical analysis, and scientific writing services.
+      </p>
+    </div>
+    <div class="info-card">
+      <h3>Quick Info</h3>
+      <ul class="info-list">
+        <li><span>Role</span><span>Asst. Professor, Mol. Biology</span></li>
+        <li><span>Inst.</span><span>Lovely Professional University</span></li>
+        <li><span>PhD</span><span>Punjab Agricultural University</span></li>
+        <li><span>Field</span><span>Plant Genomics &amp; Molecular Breeding</span></li>
+        <li><span>Email</span><span>suruchi.28640@lpu.co.in</span></li>
+        <li><span>Phone</span><span>+91-9463921175</span></li>
+        <li><span>Also</span><span>Director, CropGenex, Ludhiana</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH INTERESTS -->
+<section id="research" style="background:var(--white)">
+  <div class="section-label">02 — Research</div>
+  <h2>Areas of <strong>Scientific Focus</strong></h2>
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="research-icon">🌾</div>
+      <h3>Wheat Chromosome Mapping</h3>
+      <p>Physical and genetic mapping of wheat chromosomes using HICF, NGS markers, SSR and gene-based markers. Contributed to the 2018 IWGSC reference genome (Science).</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">🛡️</div>
+      <h3>Disease Resistance Genes</h3>
+      <p>Mapping and characterization of leaf rust, stripe rust, and stem rust resistance genes in wheat, including transfer from wild relatives using molecular breeding approaches.</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">🧬</div>
+      <h3>Omics Data Analysis</h3>
+      <p>High-throughput GBS, SNP chips, WGS and RNAseq data analysis for SNV/Indel discovery, differential gene expression, QTL mapping, and transcriptome characterization.</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">🔬</div>
+      <h3>Functional Genomics</h3>
+      <p>Virus-Induced Gene Silencing (VIGS) of tillering (Max2) and dwarfing (PIN1) genes in wheat. Structural and functional analysis of auxin efflux carriers.</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">🌿</div>
+      <h3>Crop Improvement via Wild Relatives</h3>
+      <p>Utilization of <em>Triticum monococcum</em> and <em>T. dicoccoides</em> for introgression of beneficial traits including grain size and adult plant resistance into hexaploid wheat.</p>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">💻</div>
+      <h3>Bioinformatics & AI in Agriculture</h3>
+      <p>Application of machine learning and deep learning for rust disease classification, big genome data analytics, and statistical data analysis for genomic datasets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">03 — Experience</div>
+  <h2>Research &<br><strong>Professional Journey</strong></h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">Feb 2022 — Present</div>
+      <h3>Director — CropGenex</h3>
+      <p class="org">Ludhiana, Punjab, India</p>
+      <ul>
+        <li>Partnership firm providing services in Genomics Data Analysis and Big Genome Data Analytics</li>
+        <li>Scientific writing, editing, proofreading, and statistical data analysis</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">July 2017 — Jan 2021</div>
+      <h3>Women Scientist (Principal Investigator) — BIOCARe</h3>
+      <p class="org">School of Agricultural Biotechnology, Punjab Agricultural University, Ludhiana</p>
+      <ul>
+        <li>Successfully completed project on mapping leaf and rust resistance genes from <em>T. monococcum</em></li>
+        <li>Generation and phenotyping of mapping populations for leaf rust and stripe rust under field and screen house conditions</li>
+        <li>Analysis of wheat SNP chips and GBS data for SNP marker discovery linked to disease resistance</li>
+        <li>Molecular mapping using QTL Cartographer; Transcriptome analysis for grain size genes in <em>T. dicoccoides</em></li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Oct 2016 — July 2017</div>
+      <h3>Research Assistant</h3>
+      <p class="org">School of Agricultural Biotechnology, Punjab Agricultural University, Ludhiana</p>
+      <ul>
+        <li>Fine mapping of QTLs conferring resistance against yellow rust pathogen using high-throughput genomics</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">July 2016 — Oct 2016</div>
+      <h3>Senior Research Fellow</h3>
+      <p class="org">Punjab Agricultural University, Ludhiana</p>
+      <ul>
+        <li>Marker-assisted selection to transfer Vitamin A biosynthesis genes into elite Maize cultivars using SSR markers (foreground and background selection)</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2010 — 2015</div>
+      <h3>Doctoral Researcher (PhD)</h3>
+      <p class="org">Punjab Agricultural University, Ludhiana</p>
+      <ul>
+        <li>Physical mapping of chromosome 2AL using High Information Content Fingerprinting (HICF)</li>
+        <li>Genetic saturation of chromosome 2AL using NGS-derived gene-based and SSR markers</li>
+        <li>Virus Induced Gene Silencing of tillering (Max2) and dwarfing (PIN1) genes in wheat</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Feb 2009 — June 2009</div>
+      <h3>Research Assistant</h3>
+      <p class="org">Sardar Vallabh Bhai Patel University of Agriculture and Technology, Meerut</p>
+      <ul>
+        <li>Protein expression profiling of rice varieties under water stress conditions using 1D SDS-PAGE</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" style="background:var(--white)">
+  <div class="section-label">04 — Publications</div>
+  <h2>Selected <strong>Publications</strong></h2>
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <span class="pub-type">Journal Article</span>
+      <span class="pub-year">2023</span>
+      <h4>Multi-omics assisted breeding for biotic stress resistance in soybean</h4>
+      <p class="pub-authors">Bisht A, Saini DK, Kaur B, Batra R, Kaur S, Kaur I, <strong>Jindal S</strong>, et al.</p>
+      <p class="pub-meta">Molecular Biology Reports · doi: 10.1007/s11033-023-08260-4</p>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-type">Journal Article</span>
+      <span class="pub-year">2022</span>
+      <h4>RNA-Seq Based Transcriptomics study to investigate the genes governing nitrogen use efficiency in Indian Wheat Cultivars</h4>
+      <p class="pub-authors">Kaur S, Shamshad M, <strong>Jindal S</strong>, Kaur A, Singh S, Sharma A and Kaur S</p>
+      <p class="pub-meta">Frontiers in Genetics 13:853910 · doi: 10.3389/fgene.2022.853910</p>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-type">Book Chapter</span>
+      <span class="pub-year">2022</span>
+      <h4>Rust Disease classification using Deep learning based algorithm: The Case of Wheat</h4>
+      <p class="pub-authors">Shivani Sood, Harjeet Singh and <strong>Suruchi Jindal</strong></p>
+      <p class="pub-meta">Intechopen · 10.5772/intechopen.104426</p>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-type">Journal Article</span>
+      <span class="pub-year">2020</span>
+      <h4>Comparative analysis of chromosome 2A molecular organization in diploid and hexaploid wheat</h4>
+      <p class="pub-authors"><strong>Suruchi Jindal*</strong>, Parampreet Kaur* (*Contributed equally), Bharat Yadav, Inderjit Yadav, et al.</p>
+      <p class="pub-meta">Molecular Biology Reports 47:1991–2003</p>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-type">Journal Article</span>
+      <span class="pub-year">2019</span>
+      <h4>Physical mapping of an adult plant stripe rust resistance gene from Triticum monococcum</h4>
+      <p class="pub-authors">Priti Sharma, Preeni Bawa, Bharat Yadav, Parampreet Kaur, <strong>Suruchi Jindal</strong>, et al.</p>
+      <p class="pub-meta">Journal of Plant Biochemistry and Biotechnology 29, 47–55</p>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-type">Journal Article</span>
+      <span class="pub-year">2019</span>
+      <h4>Structural and functional evolution of an auxin efflux carrier PIN1 and its functional characterization in common wheat</h4>
+      <p class="pub-authors">Kanwardeep Singh, Johar Singh, <strong>Suruchi Jindal</strong>, Gaganjot Sidhu, Amandeep Dhaliwal, Kulvinder Gill</p>
+      <p class="pub-meta">Functional and Integrative Genomics 19, 29–41</p>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-type">Journal Article</span>
+      <span class="pub-year">2018</span>
+      <h4>Shifting the limits in wheat research and breeding using a fully annotated reference genome</h4>
+      <p class="pub-authors">International Wheat Genome Sequencing Consortium (incl. <strong>Suruchi Jindal</strong>)</p>
+      <p class="pub-meta"><strong>Science</strong> 361, eaar7191 — IWGSC Reference Genome</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top:2rem">
+    <div class="section-label" style="margin-bottom:1.5rem">Book Chapters &amp; Books</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <span class="pub-type">Book Chapter</span>
+        <span class="pub-year">2021</span>
+        <h4>Genome Editing and Trait Improvement in Wheat</h4>
+        <p class="pub-authors">Monika Bansal, <strong>Suruchi Jindal</strong>, Shabir H Wani, Showkat Ahmad Ganie, Ravinder Singh</p>
+        <p class="pub-meta">In: Physiological, Molecular and Genetic Perspectives of Wheat Improvement. Springer, Cham.</p>
+      </div>
+      <div class="pub-item">
+        <span class="pub-type">Book</span>
+        <span class="pub-year">2021</span>
+        <h4>Next Generation Plant Breeding for Food and Nutritional Security</h4>
+        <p class="pub-authors">Shabir H. Wani, <strong>Suruchi Jindal</strong>, Monika Bansal, Anurag Tripathi, Jeet Ram Chaudhary</p>
+        <p class="pub-meta">AGROBIOS, India</p>
+      </div>
+      <div class="pub-item">
+        <span class="pub-type">Book Chapter</span>
+        <span class="pub-year">2020</span>
+        <h4>Microbes in soil and their metagenomics (pp 85–96)</h4>
+        <p class="pub-authors"><strong>Suruchi Jindal</strong></p>
+        <p class="pub-meta">In: Microbial Diversity, Interventions and Scope. Springer, Singapore.</p>
+      </div>
+      <div class="pub-item">
+        <span class="pub-type">Book Chapter</span>
+        <span class="pub-year">2018</span>
+        <h4>Utilization of wild species for wheat improvement using genomic approaches (pp 105–150)</h4>
+        <p class="pub-authors">Satinder Kaur, <strong>Suruchi Jindal</strong>, Maninder Kaur and Parveen Chhuneja</p>
+        <p class="pub-meta">In: Biotechnologies of Crop Improvement, Volume 3. Springer Nature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">05 — Skills</div>
+  <h2>Technical <strong>Expertise</strong></h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Genomics &amp; Sequencing</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">GBS (Genotyping by Sequencing)</span>
+        <span class="skill-tag">SNP Chips</span>
+        <span class="skill-tag">Whole Genome Sequencing</span>
+        <span class="skill-tag">KASP Assays</span>
+        <span class="skill-tag">SSR Genotyping</span>
+        <span class="skill-tag">QTL Mapping</span>
+        <span class="skill-tag">Molecular Mapping</span>
+        <span class="skill-tag">HICF</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Transcriptomics &amp; Functional Genomics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">RNAseq Analysis</span>
+        <span class="skill-tag">Differential Expression</span>
+        <span class="skill-tag">Pathway Analysis</span>
+        <span class="skill-tag">VIGS</span>
+        <span class="skill-tag">Gene Cloning</span>
+        <span class="skill-tag">Marker-Assisted Selection</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Bioinformatics Tools</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Galaxy</span>
+        <span class="skill-tag">Vector NTI</span>
+        <span class="skill-tag">Polymarker</span>
+        <span class="skill-tag">Perlprimer</span>
+        <span class="skill-tag">Primer3</span>
+        <span class="skill-tag">Ensembl</span>
+        <span class="skill-tag">QTL Cartographer</span>
+        <span class="skill-tag">Mapmaker</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Statistics &amp; Analytics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">SPSS</span>
+        <span class="skill-tag">Biostatistics</span>
+        <span class="skill-tag">PCA</span>
+        <span class="skill-tag">ANOVA</span>
+        <span class="skill-tag">R (Genomics)</span>
+        <span class="skill-tag">Python / ML</span>
+        <span class="skill-tag">Deep Learning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--white)">
+  <div class="section-label">06 — Education</div>
+  <h2>Academic <strong>Background</strong></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">PhD</div>
+      <div class="edu-field">Biotechnology</div>
+      <div class="edu-inst">Punjab Agricultural University, Ludhiana</div>
+      <div class="edu-year">2010 – 2015 &nbsp;·&nbsp; CGPA 8.18</div>
+      <p style="font-size:0.8rem;color:var(--ink-muted);margin-top:0.75rem">Thesis: Physical and Genetic mapping of chromosome 2AL of wheat</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">M.Sc.</div>
+      <div class="edu-field">Biotechnology (Hons.)</div>
+      <div class="edu-inst">Lovely Professional University, Phagwara</div>
+      <div class="edu-year">2007 – 2009 &nbsp;·&nbsp; CGPA 8.97 (81%)</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">B.Sc.</div>
+      <div class="edu-field">Life Sciences</div>
+      <div class="edu-inst">D.M. College, Panjab University, Moga</div>
+      <div class="edu-year">2004 – 2007 &nbsp;·&nbsp; 75.15%</div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section>
+  <div class="section-label">07 — Recognitions</div>
+  <h2>Awards &<br><strong>Fellowships</strong></h2>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-icon">🏆</div>
+      <div class="award-text">
+        <h4>Young Scientist Award</h4>
+        <p>Punjab Science Congress, 2017</p>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🔬</div>
+      <div class="award-text">
+        <h4>BIOCARe Women Scientist Fellowship</h4>
+        <p>Department of Biotechnology, India, 2016</p>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">📜</div>
+      <div class="award-text">
+        <h4>Junior Research Fellowship (JRF)</h4>
+        <p>Department of Biotechnology, India, 2012–2014</p>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">✅</div>
+      <div class="award-text">
+        <h4>ARS-NET Qualified</h4>
+        <p>Agricultural Scientists Recruitment Board, INDIA, 2014</p>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🥉</div>
+      <div class="award-text">
+        <h4>Third Prize — Oral Presentation</h4>
+        <p>National Conference on Agriculture and Sustainable Development, 2016</p>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🎓</div>
+      <div class="award-text">
+        <h4>Merit Scholarship</h4>
+        <p>B.Sc., Punjab University, Chandigarh, 2006</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--white)">
+  <div class="section-label">08 — Contact</div>
+  <h2>Get in <strong>Touch</strong></h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Open for Collaborations &amp; Inquiries</h3>
+      <p>Whether you're a researcher, student, or industry partner interested in plant genomics, molecular breeding, or bioinformatics services through CropGenex — feel free to reach out.</p>
+      <div class="contact-items">
+        <a href="mailto:suruchi.28640@lpu.co.in" class="contact-item">
+          <span>Email</span>
+          <span>suruchi.28640@lpu.co.in</span>
+        </a>
+        <div class="contact-item">
+          <span>Phone</span>
+          <span>+91-9463921175</span>
+        </div>
+        <div class="contact-item">
+          <span>Dept.</span>
+          <span>School of Biosciences &amp; Bioengineering, LPU Phagwara</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;">Academic Profiles</p>
+      <div class="profile-links">
+        <a href="https://www.linkedin.com/in/suruchi-jindal-b5027018/" target="_blank" rel="noopener" class="profile-link profile-link-li">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          <div>
+            <span>LinkedIn</span><br>
+            <small>Professional Network Profile</small>
+          </div>
+        </a>
+        <a href="https://www.scopus.com/dashboard.uri?origin=&zone=TopNavBar" target="_blank" rel="noopener" class="profile-link profile-link-sc">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <div>
+            <span>Scopus</span><br>
+            <small>Author Citation Profile</small>
+          </div>
+        </a>
+        <a href="https://scholar.google.com/citations?user=wwEiJioAAAAJ&hl=en" target="_blank" rel="noopener" class="profile-link profile-link-gs">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <div>
+            <span>Google Scholar</span><br>
+            <small>Citations &amp; Impact Metrics</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2024 Dr. Suruchi Jindal · Molecular Biology &amp; Plant Genomics</span>
+  <span>LPU Phagwara · <a href="mailto:suruchi.28640@lpu.co.in">suruchi.28640@lpu.co.in</a></span>
+</footer>
+
+</body>
+</html>
